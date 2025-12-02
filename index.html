@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calendario de adviento</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Dancing+Script:wght@500;700&family=Caveat:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Calendario de adviento para mi amorchito</h1>
+      <p class="subtitle">24 días, 24 detallitos.</p>
+    </header>
+
+    <section class="calendar" aria-label="Calendario de adviento">
+      <div class="grid" id="grid">
+        <!-- Las 24 puertas se generan con JavaScript -->
+      </div>
+    </section>
+
+    <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true">
+      <div class="modal">
+        <button id="closeBtn" class="closeBtn" aria-label="Cerrar">×</button>
+        <div id="modalContent" class="modalContent"></div>
+      </div>
+    </div>
+
+    <footer class="footer">Abra una puerta cada día - Mi bebechito.</footer>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
