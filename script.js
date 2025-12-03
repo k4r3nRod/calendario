@@ -206,13 +206,13 @@ function closeModal(){
 
 // Recordatorios flotantes para días específicos
 const floatingReminders = {
-  2: {
+  3: {
     title: '💔❤️‍🩹 Recordatorio',
     text: 'Ayer me dijo culera, me dijo puta y me mandó a comer mierda 😢.'
   },
   4: {
     title: '💝 Recordatorio',
-    text: '¡Hoy es un día especial! No olvides abrir la puerta del día 4 🎄✨'
+    text: 'lo amo tanto mi cosita bonita ✨'
   }
 };
 
