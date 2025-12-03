@@ -41,8 +41,8 @@ const dayVouchers = {
   4: 'Ir a Starbucks juntos y elegir lo que usted quiera',
   8: 'Un chocolate para endulzar su día, así como usted endulza mi vida',
   14: 'Un perdón exprés… válido incluso cuando yo me enoje sin razón',
-  18: 'Una carta hecha a mano contándole lo que más amo de usted',
-  22: 'Una salida al lugar que usted elija, con todo mi amor'
+  18: 'Ir a Llao Llao juntos y elegir lo que usted quiera',
+  22: 'Una hamburguesa gigante con todo lo que usted quiera'
 };
 
 // Boton para reproducir el video
