@@ -2,7 +2,7 @@
 const messages = [
   /*1*/'Para mi amor 💋❤️',
   /*2*/'Hoy solo quiero que sepa que lo quiero bonito, sin condiciones ni prisas. Adoro sus abrazos y cómo me hace sentir segura.',
-  /*3*/'Lo quiero porque con usted puedo ser yo misma, sin miedo, sin filtros… y eso es un regalo enorme.',
+  /*3*/'Lo quiero porque con usted puedo ser yo misma, sin miedo, sin filtros… y eso es un regalo enorme. Mi corazón se siente en casa cuando estoy con usted.',
   /*4*/'(vale)',
   /*5*/'Me encanta cómo hace que todo sea más divertido y especial.',
   /*6*/'Me gusta su creatividad, esa travesura suya de desarmar todo lo que cae en sus manos, y el ingenio con el que después lo vuelve a dejar mejor que antes.',
@@ -204,6 +204,39 @@ function closeModal(){
   overlay.classList.add('hidden');
 }
 
+// Recordatorios flotantes para días específicos
+const floatingReminders = {
+  2: {
+    title: '💔❤️‍🩹 Recordatorio',
+    text: 'Ayer me dijo culera, me dijo puta y me mandó a comer mierda 😢.'
+  },
+  4: {
+    title: '💝 Recordatorio',
+    text: '¡Hoy es un día especial! No olvides abrir la puerta del día 4 🎄✨'
+  }
+};
+
+function showFloatingReminder(day) {
+  const reminder = floatingReminders[day];
+  if (!reminder) return;
+  
+  const reminderEl = document.createElement('div');
+  reminderEl.className = 'floating-reminder';
+  reminderEl.innerHTML = `
+    <button class="reminder-close" aria-label="Cerrar recordatorio">×</button>
+    <div class="reminder-title">${reminder.title}</div>
+    <div class="reminder-text">${reminder.text}</div>
+  `;
+  
+  document.body.appendChild(reminderEl);
+  
+  // Cerrar recordatorio
+  reminderEl.querySelector('.reminder-close').addEventListener('click', () => {
+    reminderEl.style.animation = 'fadeInSlide 0.4s ease-out reverse';
+    setTimeout(() => reminderEl.remove(), 400);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', async ()=>{
   // Obtener día del servidor antes de crear las puertas
   serverDay = await getServerDay();
@@ -218,4 +251,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   document.getElementById('overlay').addEventListener('click', (e)=>{
     if(e.target.id === 'overlay') closeModal();
   });
+  
+  // Mostrar recordatorio flotante si corresponde al día actual
+  showFloatingReminder(serverDay);
 });
