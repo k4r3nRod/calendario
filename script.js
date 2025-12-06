@@ -22,7 +22,7 @@ const messages = [
   /*20*/'La verdad, hay más de una canción que me recuerda a usted. Todas estas canciones hablan de un amor profundo y sincero, justo como el nuestro.',
   /*21*/'Espero que no piense que todo esto es demasiado intenso… solo quería recordarle cuánto me importa usted.',
   /*22*/'(vale)',
-  /*23*/'Quiero que sepa que lo quiero más de lo que las palabras pueden decir… usted es realmente muy especial para mí.',
+  /*23*/'Quiero que sepa que lo quiero más de lo que las palabras pueden decir, usted es realmente muy especial para mí. Usted es mi Navidad anticipada, mi regalo precioso y la razón por la que este año se siente tan especial.',
   /*24*/'Feliz noche buena, ni niño. Todo esto lo hice porque lo adoro, porque lo quiero, porque siempre está en mi mente, porque lo amo… usted es mi cielo, y quiero que sea mi niño todo el tiempo que podamos.',
   /*25*/'-----'
 ];
@@ -221,6 +221,10 @@ const floatingReminders = {
   4: {
     title: '💝 Recordatorio',
     text: 'lo amo tanto mi cosita bonita ✨'
+  },
+  6: {
+    title: '💝 Recordatorio',
+    text: 'Hoy lo quiero más que ayer ♥'
   }
 };
 
