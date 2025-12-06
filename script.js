@@ -8,7 +8,7 @@ const messages = [
   /*6*/'Me gusta su creatividad, esa travesura suya de desarmar todo lo que cae en sus manos, y el ingenio con el que después lo vuelve a dejar mejor que antes.',
   /*7*/'Me gusta por sus ojitos lindos, por esa voz que me derrite, por su sonrisa, por su risa… y por cada detalle suyo que me encanta.',
   /*8*/'(vale)',
-  /*9*/'Por usted, aprendería hasta a jugar videojuegos, solo para compartir algo que le gusta.',
+  /*9*/'Así nos veríamos si la vida nos hubiera presentado antes. Me encanta pensar que, de una u otra forma, siempre íbamos a encontrarnos. ♥',
   /*10*/'Me gusta por la paciencia que tiene, por su calma, por su serenidad y por su forma tan sensata de encontrar soluciones.',
   /*11*/'Me encantan sus besos, la manera en que usted se acerca y cómo logra que todo a mi alrededor se detenga.',
   /*12*/'Navidad siempre es especial, pero este año lo será aún más porque estaré con usted',
@@ -27,10 +27,10 @@ const messages = [
   /*25*/'-----'
 ];
 
-// Imágenes 
+// Imágenes (puede ser string o array para múltiples imágenes)
 const dayImages = {
   5: 'img/imagen1.png',
-  9: 'img/imagen5.png',
+  9: ['img/imagen5.jpg', 'img/imagen6.jpg'],
   12: 'img/imagen2.png',
   15: 'img/dia16.jpeg',
   24: 'img/imagen4.png'
@@ -64,7 +64,7 @@ const dayOneLetter = `
 let serverDay = 0;
 
 // MODO PRUEBA: cambiar a true para desbloquear todas las puertas
-const TEST_MODE = false;
+const TEST_MODE = true;
 
 async function getServerDay() {
   if (TEST_MODE) return 24;
@@ -176,7 +176,15 @@ function showModal(text, day){
   }
   // Si este día tiene imagen, mostrarla en el modal
   else if (dayImages[day]) {
-    content.innerHTML = `<img src="${dayImages[day]}" alt="Sorpresa" class="modal-img"><p>${text}</p>`;
+    const images = dayImages[day];
+    if (Array.isArray(images)) {
+      // Múltiples imágenes
+      const imgsHtml = images.map(img => `<img src="${img}" alt="Sorpresa" class="modal-img">`).join('');
+      content.innerHTML = `${imgsHtml}<p>${text}</p>`;
+    } else {
+      // Una sola imagen
+      content.innerHTML = `<img src="${images}" alt="Sorpresa" class="modal-img"><p>${text}</p>`;
+    }
   } else {
     content.innerHTML = `<p>${text}</p>`;
   }
