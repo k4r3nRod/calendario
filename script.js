@@ -30,7 +30,7 @@ const messages = [
 // Imágenes (puede ser string o array para múltiples imágenes)
 const dayImages = {
   5: 'img/imagen1.png',
-  7: ['img/imagen5.jpg', 'img/imagen6.jpg', 'img/imagen7.jpg'],
+  7: ['img/imagen8.png','img/imagen5.jpg', 'img/imagen6.jpg', 'img/imagen7.jpg'],
   12: 'img/imagen2.png',
   15: 'img/dia16.jpeg',
   24: 'img/imagen4.png'
@@ -225,6 +225,10 @@ const floatingReminders = {
   6: {
     title: '💝 Recordatorio',
     text: 'Hoy lo quiero más que ayer ♥'
+  },
+  7: {
+    title: '💝 Recordatorio',
+    text: 'Usted alegra mis días ♥'
   }
 };
 
