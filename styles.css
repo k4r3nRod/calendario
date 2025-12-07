@@ -80,6 +80,10 @@ body{
 .modalContent p{margin:10px 0 0;color:#1a0033;font-size:clamp(18px, 5vw, 24px);font-family:'Quicksand', sans-serif;font-weight:600}
 .modal-img{max-width:100%;max-height:280px;border-radius:10px;margin-bottom:12px;box-shadow:0 4px 12px rgba(0,0,0,0.2);height:auto}
 
+/* Contenedor para múltiples imágenes con ancho uniforme */
+.multi-img-container{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%}
+.multi-img-container .modal-img{width:100%;max-height:none;object-fit:cover}
+
 /* Estilos de carta */
 .letter{text-align:left;padding:16px 20px;background:linear-gradient(180deg,#fffef9,#faf5ff);border-radius:8px;border:1px solid #e0d4f0;box-shadow:inset 0 0 20px rgba(150,100,200,0.05);word-wrap:break-word}
 .letter-greeting{font-size:clamp(18px, 5vw, 26px);color:#5c2d91;margin-bottom:14px;font-style:italic}

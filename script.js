@@ -30,7 +30,7 @@ const messages = [
 // Imágenes (puede ser string o array para múltiples imágenes)
 const dayImages = {
   5: 'img/imagen1.png',
-  7: ['img/imagen5.jpg', 'img/imagen6.jpg'],
+  7: ['img/imagen5.jpg', 'img/imagen6.jpg', 'img/imagen7.jpg'],
   12: 'img/imagen2.png',
   15: 'img/dia16.jpeg',
   24: 'img/imagen4.png'
@@ -178,9 +178,9 @@ function showModal(text, day){
   else if (dayImages[day]) {
     const images = dayImages[day];
     if (Array.isArray(images)) {
-      // Múltiples imágenes
+      // Múltiples imágenes con ancho uniforme
       const imgsHtml = images.map(img => `<img src="${img}" alt="Sorpresa" class="modal-img">`).join('');
-      content.innerHTML = `${imgsHtml}<p>${text}</p>`;
+      content.innerHTML = `<div class="multi-img-container">${imgsHtml}</div><p>${text}</p>`;
     } else {
       // Una sola imagen
       content.innerHTML = `<img src="${images}" alt="Sorpresa" class="modal-img"><p>${text}</p>`;
