@@ -64,7 +64,7 @@ const dayOneLetter = `
 let serverDay = 0;
 
 // MODO PRUEBA: cambiar a true para desbloquear todas las puertas
-const TEST_MODE = true;
+const TEST_MODE = false;
 
 async function getServerDay() {
   if (TEST_MODE) return 24;
