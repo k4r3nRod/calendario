@@ -1,6 +1,6 @@
 // Textos para cada día
 const messages = [
-  /*1*/'Para mi amor 💋❤️',
+  /*1*/'(carta)',
   /*2*/'Hoy solo quiero que sepa que lo quiero bonito, sin condiciones ni prisas. Adoro sus abrazos y cómo me hace sentir segura.',
   /*3*/'Lo quiero porque con usted puedo ser yo misma, sin miedo, sin filtros… y eso es un regalo enorme. Mi corazón se siente en casa cuando estoy con usted.',
   /*4*/'(vale)',
@@ -9,9 +9,9 @@ const messages = [
   /*7*/'Así nos veríamos si la vida nos hubiera presentado antes. Me encanta pensar que, de una u otra forma, siempre íbamos a encontrarnos. ♥',
   /*8*/'(vale)',
   /*9*/'Me gusta por sus ojitos lindos, por esa voz que me derrite, por su sonrisa, por su risa… y por cada detalle suyo que me encanta.',
-  /*10*/'Me gusta por la paciencia que tiene, por su calma, por su serenidad y por su forma tan sensata de encontrar soluciones.',
+  /*10*/'(carta)',
   /*11*/'Me encantan sus besos, la manera en que usted se acerca y cómo logra que todo a mi alrededor se detenga.',
-  /*12*/'Navidad siempre es especial, pero este año lo será aún más porque estaré con usted',
+  /*12*/'Me gusta por la paciencia que tiene, por su calma, por su serenidad y por su forma tan sensata de encontrar soluciones.',
   /*13*/'Me gusta cómo hace que todo me dé vueltas; una sonrisa suya basta para que mi día sea lindo, y solo con escuchar su nombre me pongo color fresa',
   /*14*/'(vale)',
   /*15*/'Mañana le llegará un regalito',
@@ -20,7 +20,7 @@ const messages = [
   /*18*/'(vale)',
   /*19*/'Este fragmento de la canción me hace pensar en usted y en lo mucho que lo quiero',
   /*20*/'La verdad, hay más de una canción que me recuerda a usted. Todas estas canciones hablan de un amor profundo y sincero, justo como el nuestro.',
-  /*21*/'Espero que no piense que todo esto es demasiado intenso… solo quería recordarle cuánto me importa usted.',
+  /*21*/'(carta)',
   /*22*/'(vale)',
   /*23*/'Quiero que sepa que lo quiero más de lo que las palabras pueden decir, usted es realmente muy especial para mí. Usted es mi Navidad anticipada, mi regalo precioso y la razón por la que este año se siente tan especial.',
   /*24*/'Feliz noche buena, ni niño. Todo esto lo hice porque lo adoro, porque lo quiero, porque siempre está en mi mente, porque lo amo… usted es mi cielo, y quiero que sea mi niño todo el tiempo que podamos.',
@@ -60,11 +60,36 @@ const dayOneLetter = `
 </div>
 `;
 
+// Carta especial para el día 10
+const dayTenLetter = `
+<div class="letter">
+  <p class="letter-greeting">Mi amor,</p>
+  <p class="letter-body">Lo voy a amar cada segundo, entre besos, abrazos y sonrisas…
+Y también en esos instantes tranquilos donde simplemente estemos conversando o compartiendo un silencio que se sienta lleno de paz. Quiero que usted sepa que su presencia es un regalo, que me transmite calma, y que cada día encuentro una razón nueva para apreciarlo aún más.</p>
+  <p class="letter-body">Deseo cuidar lo que estamos construyendo, paso a paso, sin apresurarnos, con esa ilusión bonita que nace cuando todo se siente genuino. Quiero acompañarlo en sus metas, alegrarme con sus logros y ser apoyo cuando la vida pese un poco más. Porque para mí, usted es alguien especial, alguien que ilumina incluso mis días más rutinarios.</p>
+  <p class="letter-body">Y mientras avanzamos, mientras seguimos creciendo juntos, quiero que tenga claro que mi cariño por usted no es pasajero… es constante. Está en los momentos dulces, en los tranquilos y en los que requieren fuerza.</p>
+  <p class="letter-body">Quiero que usted sepa que aquí estoy, con el corazón abierto, agradecida por lo que compartimos y por lo mucho que aún nos falta vivir.</p>
+  <p class="letter-signature">Con todo mi amor,<br>Karen ❤️</p>
+</div>
+`;
+
+// Carta especial para el día 21
+const dayTwentyOneLetter = `
+<div class="letter">
+  <p class="letter-greeting">¿Quién es usted para mí?</p>
+  <p class="letter-body">Cuando pienso en usted, no solo pienso en la persona que me gusta, sino en todo lo que representa en mi vida. Usted es mi mejor amigo, mi confidente, la persona con quien puedo abrir el corazón y compartir mis pensamientos más sinceros.</p>
+  <p class="letter-body">Usted es mi calma, mi sonrisa favorita, mis abrazos preferidos y esos besos que guardo con tanto cariño en el alma.</p>
+  <p class="letter-body">Para mí, usted es inspiración, motivación y ternura. Es quien, sin darse cuenta, me está enseñando a amar cada día de una forma más bonita y más honesta. Usted es mi significado de compañía, ese espacio seguro donde todo se siente bien.</p>
+  <p class="letter-body">Usted es, simplemente, mi lugar favorito.</p>
+  <p class="letter-signature">Con todo mi amor,<br>Karen ❤️</p>
+</div>
+`;
+
 // Variable global para almacenar el día actual del servidor
 let serverDay = 0;
 
 // MODO PRUEBA: cambiar a true para desbloquear todas las puertas
-const TEST_MODE = false;
+const TEST_MODE = true;
 
 async function getServerDay() {
   if (TEST_MODE) return 24;
@@ -141,6 +166,14 @@ function showModal(text, day){
   // Día 1: mostrar carta especial
   if (day === 1) {
     content.innerHTML = dayOneLetter;
+  }
+  // Día 10: mostrar carta especial
+  else if (day === 10) {
+    content.innerHTML = dayTenLetter;
+  }
+  // Día 21: mostrar carta especial
+  else if (day === 21) {
+    content.innerHTML = dayTwentyOneLetter;
   }
   // Si este día tiene vale canjeable
   else if (dayVouchers[day]) {
