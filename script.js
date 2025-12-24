@@ -14,8 +14,8 @@ const messages = [
   /*12*/'Me gusta por la paciencia que tiene, por su calma, por su serenidad y por su forma tan sensata de encontrar soluciones.',
   /*13*/'Me gusta cómo hace que todo me dé vueltas; una sonrisa suya basta para que mi día sea lindo, y solo con escuchar su nombre me pongo color fresa',
   /*14*/'(vale)',
-  /*15*/'Mañana le llegará un regalito',
-  /*16*/'Espero que le haya gustado su regalito, se lo doy con mucho amor',
+  /*15*/'Un abrazo suyo es mi lugar favorito en el mundo. Me encanta cómo me hace sentir segura, amada y protegida al mismo tiempo.',
+  /*16*/'Cuando pienso en usted, pienso en alguien especial, alguien que me hace reír, que me escucha y que siempre está ahí para mí. Me gusta su compañía y cómo hace que cada momento juntos sea único.',
   /*17*/'Me gusta por los apodos únicos que se inventa, y me encanta cómo cada uno refleja su ingenio y ternura.',
   /*18*/'(vale)',
   /*19*/'Este fragmento de la canción me hace pensar en usted y en lo mucho que lo quiero',
@@ -32,8 +32,7 @@ const dayImages = {
   5: 'img/imagen1.png',
   7: ['img/imagen8.png','img/imagen5.jpg', 'img/imagen6.jpg', 'img/imagen7.jpg'],
   12: 'img/imagen2.png',
-  15: 'img/dia16.jpeg',
-  24: 'img/imagen4.png'
+  15: 'img/imagen4.png'
 };
 
 // Vales canjeables 
@@ -85,14 +84,26 @@ const dayTwentyOneLetter = `
 </div>
 `;
 
+// Carta especial para el día 24
+const dayTwentyFourLetter = `
+<div class="letter">
+  <p class="letter-greeting">Amor mío,</p>
+  <p class="letter-body">Quería escribirle para recordarle algo que a veces las palabras dichas en voz alta no alcanzan a expresar del todo: lo mucho que lo quiero. Usted es una de las personas más bonitas que han llegado a mi vida, no solo por lo que es, sino por todo lo que despierta en mí.</p>
+  <p class="letter-body">Me encanta la forma en que su presencia tranquiliza, cómo su voz se vuelve refugio y cómo, sin darse cuenta, logra hacerme sonreír incluso en los días más cansados. Usted tiene ese don de quedarse en mis pensamientos y en mi corazón, de una manera suave pero profunda.</p>
+  <p class="letter-body">Quiero que sepa que lo admiro, que valoro cada detalle suyo y que agradezco cada momento compartido. No necesito grandes promesas, me basta con sentir este amor que nace sincero, que se construye con gestos, paciencia y verdad.</p>
+  <p class="letter-body">Hoy y siempre, quiero que tenga claro que lo quiero, que me importa y que ocupa un lugar especial en mi vida. Y aunque el tiempo pase, deseo que este sentimiento siga creciendo, tan bonito y tan nuestro como hasta ahora.</p>
+  <p class="letter-signature">Con todo mi cariño,<br>Karen 💌</p>
+</div>
+`;
+
 // Variable global para almacenar el día actual del servidor
 let serverDay = 0;
 
 // MODO PRUEBA: cambiar a true para desbloquear todas las puertas
-const TEST_MODE = false;
+const TEST_MODE = true;
 
 async function getServerDay() {
-  if (TEST_MODE) return 24;
+  if (TEST_MODE) return 25; // Desbloquear todas las puertas en modo prueba
   
   try {
     // Intentar obtener hora del servidor (WorldTimeAPI - zona horaria de Colombia/México)
@@ -122,6 +133,12 @@ function createDoor(day){
 
   const door = document.createElement('button');
   door.className = 'door' + (isUnlocked ? '' : ' locked');
+  
+  // Día 25 especial con esferas
+  if (day === 25) {
+    door.classList.add('door-christmas');
+  }
+  
   door.setAttribute('aria-label', isUnlocked ? `Abrir puerta ${day}` : `Puerta ${day} bloqueada`);
   const inner = document.createElement('div');
   inner.className = 'inner';
@@ -129,7 +146,22 @@ function createDoor(day){
   const front = document.createElement('div');
   front.className = 'front';
   const label = isUnlocked ? 'Abre' : '🔒';
-  front.innerHTML = `<div class="num"><div style="font-size:28px">${day}</div><span>${label}</span></div>`;
+  
+  // Agregar esferas colgantes solo al día 25
+  let esferasHtml = '';
+  if (day === 25) {
+    esferasHtml = `
+      <div class="esferas-container">
+        <img src="img/esfera1.png" class="esfera esfera-1" alt="">
+        <img src="img/esfera2.png" class="esfera esfera-2" alt="">
+        <img src="img/esfera3.png" class="esfera esfera-3" alt="">
+        <img src="img/esfera4.png" class="esfera esfera-4" alt="">
+        <img src="img/esfera5.png" class="esfera esfera-5" alt="">
+      </div>
+    `;
+  }
+  
+  front.innerHTML = `${esferasHtml}<div class="num"><div style="font-size:28px">${day}</div><span>${label}</span></div>`;
 
   const back = document.createElement('div');
   back.className = 'back';
@@ -174,6 +206,37 @@ function showModal(text, day){
   // Día 21: mostrar carta especial
   else if (day === 21) {
     content.innerHTML = dayTwentyOneLetter;
+  }
+  // Día 24: mostrar carta especial
+  else if (day === 24) {
+    content.innerHTML = dayTwentyFourLetter;
+  }
+  // Día 25: corazón de fotos especial
+  else if (day === 25) {
+    const heartImages = [
+      // Fila 1: posiciones 2,3 y 5,6 (4 fotos)
+      'img/imagen1.png', 'img/imagen2.png', 'img/imagen3.png', 'img/imagen4.png',
+      // Fila 2: posiciones 1-7 (7 fotos)
+      'img/imagen5.jpg', 'img/imagen6.jpg', 'img/imagen7.jpg', 'img/imagen8.png',
+      'img/imagen9.png', 'img/imagen10.png', 'img/imagen11.png',
+      // Fila 3: posiciones 1-7 (7 fotos)
+      'img/imagen12.png', 'img/imagen13.png', 'img/esfera1.png', 'img/imagen1.png',
+      'img/imagen2.png', 'img/imagen3.png', 'img/imagen4.png',
+      // Fila 4: posiciones 2-6 (5 fotos)
+      'img/imagen5.jpg', 'img/imagen6.jpg', 'img/imagen7.jpg', 'img/imagen8.png', 'img/imagen9.png',
+      // Fila 5: posiciones 3-5 (3 fotos)
+      'img/imagen10.png', 'img/imagen11.png', 'img/imagen12.png',
+      // Fila 6: punta (1 foto)
+      'img/imagen13.png'
+    ];
+    const imgsHtml = heartImages.map(img => `<img src="${img}" alt="Recuerdo" class="photo-heart-img">`).join('');
+    content.innerHTML = `
+      <div class="photo-heart-container">
+        <p class="photo-heart-title">❤️ Feliz Navidad mi amor ❤️</p>
+        <div class="photo-heart">${imgsHtml}</div>
+        <p class="photo-heart-message">${text}</p>
+      </div>
+    `;
   }
   // Si este día tiene vale canjeable
   else if (dayVouchers[day]) {
@@ -291,7 +354,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   serverDay = await getServerDay();
   
   const grid = document.getElementById('grid');
-  for(let d=1; d<=24; d++){
+  for(let d=1; d<=25; d++){
     const door = createDoor(d);
     grid.appendChild(door);
   }
