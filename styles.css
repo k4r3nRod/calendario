@@ -331,12 +331,15 @@ body{
 /* Esferas colgantes para día 25 */
 .door-christmas{
   overflow:visible !important;
+  position:relative;
 }
 .door-christmas .inner{
-  overflow:visible !important;
+  overflow:hidden;
+  border-radius:10px;
 }
 .door-christmas .front{
   overflow:visible !important;
+  border-radius:10px;
 }
 .esferas-container{
   position:absolute;
@@ -347,6 +350,7 @@ body{
   justify-content:space-around;
   pointer-events:none;
   z-index:100;
+  clip-path:inset(-100% -100% 0 -100%);
 }
 .esfera{
   width:18px;
