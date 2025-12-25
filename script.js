@@ -24,7 +24,7 @@ const messages = [
   /*22*/'(vale)',
   /*23*/'Quiero que sepa que lo quiero más de lo que las palabras pueden decir, usted es realmente muy especial para mí. Usted es mi Navidad anticipada, mi regalo precioso y la razón por la que este año se siente tan especial.',
   /*24*/'Feliz noche buena, ni niño. Todo esto lo hice porque lo adoro, porque lo quiero, porque siempre está en mi mente, porque lo amo… usted es mi cielo, y quiero que sea mi niño todo el tiempo que podamos.',
-  /*25*/'-----'
+  /*25*/'Feliz Navidad, amor. Aunque hoy no podamos estar juntos, quiero que sepa que lo llevo muy presente en mi corazón. La distancia no cambia lo que siento por usted; al contrario, me recuerda lo importante que es para mí. Deseo que esta Navidad le regale paz, calma y una sonrisa, y que sienta mi cariño acompañándolo, incluso desde lejos.'
 ];
 
 // Imágenes (puede ser string o array para múltiples imágenes)
@@ -218,7 +218,7 @@ function showModal(text, day){
       'img/imagen7.jpg', 'img/imagen2.png', 'img/imagen14.jpg', 'img/imagen3.png',
       // Fila 2: posiciones 1-7 (7 fotos)
       'img/imagen13.png', 'img/imagen17.jpg', 'img/imagen15.jpeg', 'img/imagen6.jpg',
-      'img/imagen9.png', 'img/imagen10.png', 'img/imagen11.png',
+      'img/imagen9.png', 'img/imagen19.jpg', 'img/imagen11.png',
       // Fila 3: posiciones 1-7 (7 fotos)
       'img/imagen12.png', 'img/imagen16.jpeg', 'img/imagen20.jpg', 'img/imagen1.png',
       'img/imagen21.jpg', 'img/imagen2.png','img/imagen4.png',
@@ -229,7 +229,7 @@ function showModal(text, day){
       // Fila 6: punta (1 foto)
       'img/imagen13.png'
     ];
-    const imgsHtml = heartImages.map(img => `<img src="${img}" alt="Recuerdo" class="photo-heart-img">`).join('');
+    const imgsHtml = heartImages.map(img => `<img src="${img}" alt="Recuerdo" class="photo-heart-img" onclick="openLightbox('${img}')">`).join('');
     content.innerHTML = `
       <div class="photo-heart-container">
         <p class="photo-heart-title">❤️ Feliz Navidad mi amor ❤️</p>
@@ -306,6 +306,26 @@ function createHeart(){
 function closeModal(){
   const overlay = document.getElementById('overlay');
   overlay.classList.add('hidden');
+}
+
+// Lightbox para fotos
+function openLightbox(imgSrc) {
+  const lightbox = document.createElement('div');
+  lightbox.className = 'lightbox';
+  lightbox.innerHTML = `
+    <div class="lightbox-content">
+      <img src="${imgSrc}" alt="Foto ampliada">
+      <button class="lightbox-close">×</button>
+    </div>
+  `;
+  document.body.appendChild(lightbox);
+  
+  // Cerrar al hacer clic fuera o en el botón
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+      lightbox.remove();
+    }
+  });
 }
 
 // Recordatorios flotantes para días específicos

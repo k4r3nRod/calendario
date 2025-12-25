@@ -411,6 +411,14 @@ body{
 .photo-heart-img:nth-child(26){grid-column:5;grid-row:5}
 /* Fila 6: punta (1 foto) */
 .photo-heart-img:nth-child(27){grid-column:4;grid-row:6}
+.photo-heart-img{
+  cursor:pointer;
+}
+.photo-heart-img:hover{
+  transform:scale(1.15);
+  z-index:10;
+  box-shadow:0 4px 15px rgba(155,89,182,0.5);
+}
 .photo-heart-title{
   font-family:'Dancing Script',cursive;
   font-size:clamp(22px,5vw,28px);
@@ -451,4 +459,57 @@ body{
   .closeBtn{font-size:22px;right:6px;top:4px}
   .footer{font-size:12px;margin-top:12px}
   .inner{border-radius:8px}
+}
+
+/* Lightbox para fotos */
+.lightbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:10000;
+  animation:fadeIn 0.3s ease;
+}
+.lightbox-content{
+  position:relative;
+  max-width:90%;
+  max-height:90%;
+}
+.lightbox-content img{
+  max-width:100%;
+  max-height:85vh;
+  border-radius:12px;
+  box-shadow:0 8px 40px rgba(155,89,182,0.6);
+  animation:zoomIn 0.3s ease;
+}
+.lightbox-close{
+  position:absolute;
+  top:-15px;
+  right:-15px;
+  width:40px;
+  height:40px;
+  background:#9b59b6;
+  color:#fff;
+  border:none;
+  border-radius:50%;
+  font-size:24px;
+  cursor:pointer;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 4px 15px rgba(0,0,0,0.3);
+  transition:transform 0.2s ease;
+}
+.lightbox-close:hover{
+  transform:scale(1.1);
+  background:#8e44ad;
+}
+@keyframes zoomIn{
+  from{transform:scale(0.8);opacity:0}
+  to{transform:scale(1);opacity:1}
 }
