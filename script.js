@@ -221,11 +221,11 @@ function showModal(text, day){
       'img/imagen9.png', 'img/imagen10.png', 'img/imagen11.png',
       // Fila 3: posiciones 1-7 (7 fotos)
       'img/imagen12.png', 'img/imagen16.jpeg', 'img/imagen20.jpg', 'img/imagen1.png',
-      'img/imagen2.png', 'img/imagen3.png', 'img/imagen4.png',
+      'img/imagen21.jpg', 'img/imagen2.png','img/imagen4.png',
       // Fila 4: posiciones 2-6 (5 fotos)
-      'img/imagen5.jpg', 'img/imagen6.jpg', 'img/imagen7.jpg', 'img/imagen8.png', 'img/imagen9.png',
+      'img/imagen3.png', 'img/imagen6.jpg', 'img/imagen11.png', 'img/imagen8.png', 'img/imagen9.png',
       // Fila 5: posiciones 3-5 (3 fotos)
-      'img/imagen10.png', 'img/imagen11.png', 'img/imagen12.png',
+      'img/imagen10.png', 'img/imagen7.jpg', 'img/imagen12.png',
       // Fila 6: punta (1 foto)
       'img/imagen13.png'
     ];
