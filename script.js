@@ -100,7 +100,7 @@ const dayTwentyFourLetter = `
 let serverDay = 0;
 
 // MODO PRUEBA: cambiar a true para desbloquear todas las puertas
-const TEST_MODE = false;
+const TEST_MODE = true;
 
 async function getServerDay() {
   if (TEST_MODE) return 25; // Desbloquear todas las puertas en modo prueba
@@ -215,12 +215,12 @@ function showModal(text, day){
   else if (day === 25) {
     const heartImages = [
       // Fila 1: posiciones 2,3 y 5,6 (4 fotos)
-      'img/imagen1.png', 'img/imagen2.png', 'img/imagen3.png', 'img/imagen4.png',
+      'img/imagen7.jpg', 'img/imagen2.png', 'img/imagen14.jpg', 'img/imagen3.png',
       // Fila 2: posiciones 1-7 (7 fotos)
-      'img/imagen5.jpg', 'img/imagen6.jpg', 'img/imagen7.jpg', 'img/imagen8.png',
+      'img/imagen13.png', 'img/imagen17.jpg', 'img/imagen15.jpeg', 'img/imagen6.jpg',
       'img/imagen9.png', 'img/imagen10.png', 'img/imagen11.png',
       // Fila 3: posiciones 1-7 (7 fotos)
-      'img/imagen12.png', 'img/imagen13.png', 'img/esfera1.png', 'img/imagen1.png',
+      'img/imagen12.png', 'img/imagen16.jpeg', 'img/imagen20.jpg', 'img/imagen1.png',
       'img/imagen2.png', 'img/imagen3.png', 'img/imagen4.png',
       // Fila 4: posiciones 2-6 (5 fotos)
       'img/imagen5.jpg', 'img/imagen6.jpg', 'img/imagen7.jpg', 'img/imagen8.png', 'img/imagen9.png',
