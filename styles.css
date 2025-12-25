@@ -460,6 +460,10 @@ body{
     grid-column: 2 / 4;
     width: calc(100% / 2 - 4px);
   }
+  /* Ocultar la quinta esfera en móviles */
+  .esfera-5{
+    display:none;
+  }
 }
 
 @media (max-width:400px){
