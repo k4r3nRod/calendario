@@ -27,6 +27,12 @@ body{
   grid-template-columns:repeat(6,1fr);
   gap:10px;
 }
+/* Centrar la puerta 25 (última puerta) */
+.door:nth-child(25){
+  grid-column: 3 / 5;
+  justify-self: center;
+  width: calc(100% / 2 - 5px);
+}
 .door{
   perspective:900px;
   border:none;
@@ -326,18 +332,21 @@ body{
 .door-christmas{
   overflow:visible !important;
 }
+.door-christmas .inner{
+  overflow:visible !important;
+}
 .door-christmas .front{
   overflow:visible !important;
 }
 .esferas-container{
   position:absolute;
-  top:-25px;
+  top:-2px;
   left:0;
   right:0;
   display:flex;
   justify-content:space-around;
   pointer-events:none;
-  z-index:10;
+  z-index:100;
 }
 .esfera{
   width:18px;
@@ -446,6 +455,11 @@ body{
   .header h1{font-size:26px}
   .subtitle{font-size:14px}
   body{padding:12px}
+  /* Centrar puerta 25 en grid de 4 columnas */
+  .door:nth-child(25){
+    grid-column: 2 / 4;
+    width: calc(100% / 2 - 4px);
+  }
 }
 
 @media (max-width:400px){

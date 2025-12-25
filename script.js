@@ -134,8 +134,8 @@ function createDoor(day){
   const door = document.createElement('button');
   door.className = 'door' + (isUnlocked ? '' : ' locked');
   
-  // Día 25 especial con esferas
-  if (day === 25) {
+  // Día 25 especial con esferas (visibles desde el día 24)
+  if (day === 25 && todayDay >= 24) {
     door.classList.add('door-christmas');
   }
   
@@ -147,14 +147,14 @@ function createDoor(day){
   front.className = 'front';
   const label = isUnlocked ? 'Abre' : '🔒';
   
-  // Agregar esferas colgantes solo al día 25
+  // Agregar esferas colgantes a la puerta 25, visibles desde el día 24
   let esferasHtml = '';
-  if (day === 25) {
+  if (day === 25 && todayDay >= 24) {
     esferasHtml = `
       <div class="esferas-container">
         <img src="img/esfera1.png" class="esfera esfera-1" alt="">
-        <img src="img/esfera2.png" class="esfera esfera-2" alt="">
-        <img src="img/esfera3.png" class="esfera esfera-3" alt="">
+        <img src="img/esfera3.png" class="esfera esfera-2" alt="">
+        <img src="img/esfera2.png" class="esfera esfera-3" alt="">
         <img src="img/esfera4.png" class="esfera esfera-4" alt="">
         <img src="img/esfera5.png" class="esfera esfera-5" alt="">
       </div>
@@ -345,6 +345,10 @@ const floatingReminders = {
   7: {
     title: '💝 Recordatorio',
     text: 'Usted alegra mis días ♥'
+  },
+  26: {
+    title: '💝 Recordatorio',
+    text: 'Lo amo con todo mi corazón ♥'
   }
 };
 
